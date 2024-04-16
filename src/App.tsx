@@ -6,11 +6,25 @@ function TodoRow(props) {
     <tr>
       <td className="todoKind">{props.item}</td>
       <td className="checkYn">
-        <input
-          type="checkbox"
-          // checked={props.isChecked}
-          onChange={props.onCheckboxChange}
-        ></input>
+        {/* onChange를 input따로 button 따로 적용하고싶은데 여기서 props로 어떻게
+        받는지 모르겠음 */}
+        <input type="checkbox" onChange={() => handleCheckboxChange(i)}></input>
+        <button
+          // 스타일 css에서 적용하면 글자색만 먹음
+          style={{
+            backgroundColor: "#cdcd8e",
+            width: "20px",
+            border: "none",
+            height: "20px",
+            fontSize: "10px",
+            textAlign: "center",
+            lineHeight: "5px",
+            margin: "0px",
+            padding: "0px",
+          }}
+        >
+          삭제
+        </button>
       </td>
     </tr>
   );
@@ -40,14 +54,14 @@ function App() {
     <div>
       <div
         className="todoMain"
-        // style={{
-        //   border: "3px solid gray",
-        //   maxHeight: "500px",
-        //   height: "500px",
-        //   maxWidth: "400px",
-        //   width: "auto",
-        //   overflow: "auto",
-        // }}
+        style={{
+          border: "3px solid gray",
+          maxHeight: "500px",
+          height: "500px",
+          maxWidth: "400px",
+          width: "auto",
+          overflow: "auto",
+        }}
       >
         <table>
           <thead>
@@ -61,7 +75,7 @@ function App() {
               <TodoRow
                 key={i}
                 item={todo}
-                onCheckboxChange={() => handleCheckboxChange(i)}
+                onChange={() => handleCheckboxChange(i)} // 여기서는 onChange먹는데 인풋이랑 버튼 동일하게 돼서 문제
               ></TodoRow>
             ))}
           </tbody>
