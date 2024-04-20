@@ -1,34 +1,6 @@
 import { useState } from "react";
 import "./App.css";
-
-function TodoRow(props) {
-  return (
-    <tr>
-      <td className="todoKind">{props.item}</td>
-      <td className="checkYn">
-        {/* onChange를 input따로 button 따로 적용하고싶은데 여기서 props로 어떻게
-        받는지 모르겠음 */}
-        <input type="checkbox" onChange={() => handleCheckboxChange(i)}></input>
-        <button
-          // 스타일 css에서 적용하면 글자색만 먹음
-          style={{
-            backgroundColor: "#cdcd8e",
-            width: "20px",
-            border: "none",
-            height: "20px",
-            fontSize: "10px",
-            textAlign: "center",
-            lineHeight: "5px",
-            margin: "0px",
-            padding: "0px",
-          }}
-        >
-          삭제
-        </button>
-      </td>
-    </tr>
-  );
-}
+import TodoRow from "./components/TodoRow";
 
 function App() {
   const [todoList, setTodoList] = useState(["오전운동"]);
@@ -50,19 +22,15 @@ function App() {
     );
   };
 
+  const handleDeleteChange = (index) => {
+    setTodoList((prevList) => {
+      return prevList.filter((_, i) => i !== index);
+    });
+  };
+
   return (
     <div>
-      <div
-        className="todoMain"
-        style={{
-          border: "3px solid gray",
-          maxHeight: "500px",
-          height: "500px",
-          maxWidth: "400px",
-          width: "auto",
-          overflow: "auto",
-        }}
-      >
+      <div className="todoMain">
         <table>
           <thead>
             <tr>
@@ -75,7 +43,8 @@ function App() {
               <TodoRow
                 key={i}
                 item={todo}
-                onChange={() => handleCheckboxChange(i)} // 여기서는 onChange먹는데 인풋이랑 버튼 동일하게 돼서 문제
+                handleCheckboxChange={() => handleCheckboxChange(i)}
+                handleDeleteChange={() => handleDeleteChange(i)}
               ></TodoRow>
             ))}
           </tbody>
@@ -87,6 +56,11 @@ function App() {
           value={inputItem}
           onChange={(e) => setInputItem(e.target.value)}
           placeholder="할일 추가하기"
+          onKeyPress={(e) => {
+            if (e.key === "Enter") {
+              handleTodoList(); // 엔터 키가 눌렸을 때 입력 버튼을 클릭하는 함수 호출
+            }
+          }}
         ></input>
         <button onClick={handleTodoList}>입력</button>
       </div>
