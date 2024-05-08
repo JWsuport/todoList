@@ -22,4 +22,17 @@ interface TodoTableProps {
   deleteMemeber: (id: string) => void;
 }
 
-export type { TodoRowProps, Item, TodoAddProps, TodoTableProps };
+interface TodoStoreTypes {
+  todoList: Item[];
+  inputItem: string;
+  setTodoList: (todoList: Item[]) => void;
+  setInputItem: (inputItem: string) => void;
+}
+
+export type {
+  TodoRowProps,
+  Item,
+  TodoAddProps,
+  TodoTableProps,
+  TodoStoreTypes,
+};
