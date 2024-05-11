@@ -7,6 +7,7 @@ const TodoTable = () => {
         <tr>
           <th className="todoKind">구분</th>
           <th className="checkYn">완료</th>
+          <th className="todoDelete"></th>
         </tr>
       </thead>
       <tbody style={{ border: "3px solid white" }}></tbody>

@@ -13,6 +13,8 @@ const TodoRow = () => {
           onChange={() => updateMember(todo)}
           className="TodoRow"
         />
+      </td>
+      <td>
         <button onClick={() => deleteMember(todo)}>삭제</button>
       </td>
     </tr>
