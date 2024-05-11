@@ -1,7 +1,6 @@
-import { TodoTableProps } from "../models/type";
 import TodoRow from "./TodoRow";
 
-const TodoTable = (props: TodoTableProps) => {
+const TodoTable = () => {
   return (
     <table>
       <thead>
@@ -10,16 +9,8 @@ const TodoTable = (props: TodoTableProps) => {
           <th className="checkYn">완료</th>
         </tr>
       </thead>
-      <tbody style={{ border: "3px solid white" }}>
-        {props.todoList.map((todo, i) => (
-          <TodoRow
-            key={i}
-            item={todo}
-            updateMemeber={() => props.updateMemeber(todo)}
-            deleteMemeber={() => props.deleteMemeber(todo.id)}
-          ></TodoRow>
-        ))}
-      </tbody>
+      <tbody style={{ border: "3px solid white" }}></tbody>
+      <TodoRow></TodoRow>
     </table>
   );
 };
