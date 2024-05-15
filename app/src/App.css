@@ -7,45 +7,44 @@
 table {
   border-collapse: collapse;
   max-height: 500px;
-  max-width: 400px;
+  max-width: 1200px;
   width: 100%;
 }
 
 thead {
-  border-bottom: 10px solid white;
-  background-color: #fffce0;
+  border-bottom: 5px solid #f5eee6;
+  background-color: #f3d7ca;
   line-height: 30px;
 }
 
 tbody {
-  background-color: #f1efdd;
+  background-color: #fff8e3;
 }
 
-todoKind {
+th,
+td {
+  border: 3px solid #f5eee6;
+}
+
+.todoKind {
   width: 300px;
 }
 
-checkYn {
-  width: 100px;
+.check {
+  width: 80px;
 }
 
 .todoMain {
-  border: 3px solid black;
-  max-height: 500px;
-  height: 500px;
-  max-width: 400px;
-  width: auto;
-  overflow: auto;
+  border: 3px solid #f5eee6;
+  max-height: 600px;
+  max-width: 1200px;
 }
 
-.button {
-  background-color: black; /* 기본 배경색 */
-  border: none;
-  text-align: center; /* 텍스트 가운데 정렬 */
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px; /* 폰트 크기 */
-  border-radius: 10px; /* 버튼 모양 */
+.tableMain {
+  border-bottom: 3px solid #f5eee6;
+  height: 500px;
+  width: auto;
+  overflow: auto;
 }
 
 .TodoRow {
@@ -58,4 +57,17 @@ checkYn {
   line-height: 5px;
   margin: 0px;
   padding: 0px;
+}
+
+.btnDel {
+  padding: 5px;
+  font-size: 10px;
+  background-color: #e6a4b4;
+}
+
+.insrtBtn {
+  padding: 5px;
+  margin: 5px;
+  font-size: 10px;
+  background-color: #7bd3ea;
 }

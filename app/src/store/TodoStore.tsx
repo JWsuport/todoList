@@ -24,7 +24,9 @@ const TodoStore = create<TodoStoreTypes>((set) => ({
         body: JSON.stringify({
           key: new Date().toISOString(),
           title: inputItem,
-          isChecked: false,
+          bfrIsChecked: true, // 시작전
+          ingIsChecked: false, // 진행중
+          fnsIsChecked: false, // 완료
         }),
       });
       await getMember();
@@ -42,12 +44,40 @@ const TodoStore = create<TodoStoreTypes>((set) => ({
     getMember();
   },
 
-  updateMember: async (todo) => {
+  bfrUpdateMember: async (todo) => {
     const { getMember } = TodoStore.getState();
     await fetch("http://localhost:3001/todoList/" + todo.id, {
       method: "PATCH",
       body: JSON.stringify({
-        isChecked: !todo.isChecked,
+        bfrIsChecked: !todo.bfrIsChecked,
+        ingIsChecked: false,
+        fnsIsChecked: false,
+      }),
+    });
+    getMember();
+  },
+
+  ingUpdateMember: async (todo) => {
+    const { getMember } = TodoStore.getState();
+    await fetch("http://localhost:3001/todoList/" + todo.id, {
+      method: "PATCH",
+      body: JSON.stringify({
+        bfrIsChecked: false,
+        ingIsChecked: !todo.ingIsChecked,
+        fnsIsChecked: false,
+      }),
+    });
+    getMember();
+  },
+
+  fnsUpdateMember: async (todo) => {
+    const { getMember } = TodoStore.getState();
+    await fetch("http://localhost:3001/todoList/" + todo.id, {
+      method: "PATCH",
+      body: JSON.stringify({
+        bfrIsChecked: false,
+        ingIsChecked: false,
+        fnsIsChecked: !todo.fnsIsChecked,
       }),
     });
     getMember();

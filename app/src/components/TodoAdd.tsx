@@ -1,4 +1,5 @@
 import TodoStore from "../store/TodoStore";
+import "../App.css";
 
 const TodoAdd = () => {
   const { inputItem, setInputItem, createMember } = TodoStore();
@@ -6,7 +7,7 @@ const TodoAdd = () => {
   return (
     <div>
       <input
-        style={{ width: "250px" }}
+        style={{ width: "90%" }}
         value={inputItem}
         onChange={(e) => setInputItem(e.target.value)}
         placeholder="할일 추가하기"
@@ -16,7 +17,9 @@ const TodoAdd = () => {
           }
         }}
       ></input>
-      <button onClick={() => createMember()}>입력</button>
+      <button className="insrtBtn" onClick={() => createMember()}>
+        입력
+      </button>
     </div>
   );
 };

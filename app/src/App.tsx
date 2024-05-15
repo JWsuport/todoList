@@ -12,13 +12,11 @@ function App() {
   }, []);
 
   return (
-    <div>
-      <div className="todoMain">
+    <div className="todoMain">
+      <div className="tableMain">
         <TodoTable></TodoTable>
       </div>
-      <div>
-        <TodoAdd></TodoAdd>
-      </div>
+      <TodoAdd />
     </div>
   );
 }

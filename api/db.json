@@ -1,16 +1,12 @@
 {
   "todoList": [
     {
-      "id": "ed40",
-      "key": "2024-05-11T07:39:46.452Z",
-      "title": "공쥬",
-      "isChecked": false
-    },
-    {
-      "id": "3bc1",
-      "key": "2024-05-11T07:40:02.098Z",
-      "title": "공쥬에게 맛난거 사주기",
-      "isChecked": false
+      "id": "7bec",
+      "key": "2024-05-15T07:49:03.254Z",
+      "title": "음하하",
+      "bfrIsChecked": true,
+      "ingIsChecked": false,
+      "fnsIsChecked": false
     }
   ]
 }

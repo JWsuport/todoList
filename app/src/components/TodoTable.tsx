@@ -6,12 +6,15 @@ const TodoTable = () => {
       <thead>
         <tr>
           <th className="todoKind">구분</th>
-          <th className="checkYn">완료</th>
+          <th className="check">시작전</th>
+          <th className="check">진행중</th>
+          <th className="check">완료</th>
           <th className="todoDelete"></th>
         </tr>
       </thead>
-      <tbody style={{ border: "3px solid white" }}></tbody>
-      <TodoRow></TodoRow>
+      <tbody>
+        <TodoRow></TodoRow>
+      </tbody>
     </table>
   );
 };

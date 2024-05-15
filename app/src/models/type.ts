@@ -1,7 +1,9 @@
 type Item = {
   id: string;
   title: string;
-  isChecked: boolean;
+  bfrIsChecked: boolean; // 시작전
+  ingIsChecked: boolean; // 진행중
+  fnsIsChecked: boolean; // 완료
 };
 
 interface TodoStoreTypes {
@@ -12,7 +14,9 @@ interface TodoStoreTypes {
   getMember: () => void;
   createMember: () => void;
   deleteMember: (todo: Item) => void;
-  updateMember: (todo: Item) => void;
+  bfrUpdateMember: (todo: Item) => void;
+  ingUpdateMember: (todo: Item) => void;
+  fnsUpdateMember: (todo: Item) => void;
 }
 
 export type { Item, TodoStoreTypes };
